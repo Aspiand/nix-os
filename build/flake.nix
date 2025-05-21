@@ -19,7 +19,7 @@
       packages.aarch64-linux = {
         sdcard = nixos-generators.nixosGenerate {
           system = "aarch64-linux";
-          format = "sd-aarch64-installer";
+          format = "sd-aarch64";
           modules = [ ./configuration.nix ];
         };
       };

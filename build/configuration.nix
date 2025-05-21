@@ -9,7 +9,7 @@
     isNormalUser = true;
     description = "Aku Admin";
     password = "atomik";
-    packages = with pkgs; [ ];
+    packages = with pkgs; [ git ];
     extraGroups = [
       "whell"
       "networkmanager"
@@ -35,5 +35,8 @@
     name = "meson-gxl-s905x-p212.dtb";
   };
 
+  sdImage.compressImage = false;
   services.openssh.enable = true;
+
+  i18n.defaultLocale = "en_US.UTF-8";
 }
