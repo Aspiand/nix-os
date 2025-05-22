@@ -45,10 +45,13 @@
 
   sdImage = {
     compressImage = false;
-    postBuildCommands = ''
-      # https://github.com/NixOS/nixpkgs/blob/master/pkgs/misc/uboot/default.nix#L290
-      dd if=${pkgs.ubootLibreTechCC}/u-boot.gxl.sd.bin of=$img conv=fsync,notrunc bs=512 seek=1 skip=1
-      dd if=${pkgs.ubootLibreTechCC}/u-boot.gxl.sd.bin of=$img conv=fsync,notrunc bs=1 count=444
+    populateFirmwareCommands = ''
+      cp ${pkgs.ubootLibreTechCC}/u-boot.gxl.sd.bin firmware/u-boot.bin
     '';
+    # postBuildCommands = ''
+    #   # https://github.com/NixOS/nixpkgs/blob/master/pkgs/misc/uboot/default.nix#L290
+    #   dd if=${pkgs.ubootLibreTechCC}/u-boot.gxl.sd.bin of=$img conv=fsync,notrunc bs=512 seek=1 skip=1
+    #   dd if=${pkgs.ubootLibreTechCC}/u-boot.gxl.sd.bin of=$img conv=fsync,notrunc bs=1 count=444
+    # '';
   };
 }
